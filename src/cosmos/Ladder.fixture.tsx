@@ -1,5 +1,6 @@
 import { LadderWidget } from '@ladder/widgets'
 import { Box } from '@mui/material'
+import { DEFAULT_20_LIST } from 'constants/default20List'
 import { DEFAULT_721_LIST } from 'constants/default721List'
 import { DEFAULT_1155_LIST } from 'constants/default1155List'
 import { useCallback, useMemo, useState } from 'react'
@@ -10,17 +11,7 @@ import EventFeed, { Event, HANDLERS } from './EventFeed'
 const defaultTokenLists = {
   erc1155: DEFAULT_1155_LIST,
   erc721: DEFAULT_721_LIST,
-  erc20: {
-    5: [
-      {
-        address: '0x38D915d21dE6e22bbcB295b54aB7e611A0E90F7F',
-        tokenId: 18,
-        symbol: 'TEST',
-        name: 'TEST COIN',
-        decimals: 18,
-      },
-    ],
-  },
+  erc20: DEFAULT_20_LIST,
 }
 
 function Fixture() {
