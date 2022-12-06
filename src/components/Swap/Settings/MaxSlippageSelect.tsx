@@ -67,7 +67,6 @@ export default function MaxSlippageSelect() {
           onChange={(e) => processInput(e.target.value)}
           value={maxSlippageInput}
           placeholder={'0.10'}
-          size={Math.max(maxSlippageInput.length, 4)}
           endAdornment={
             <Box display="flex" alignItems="center" padding="0 10px" gap="10px">
               <Typography> %</Typography>

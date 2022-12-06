@@ -23,7 +23,6 @@ export default function TransactionTtlInput() {
       <NumericalInput
         width={'100%'}
         integer
-        size={Math.max(ttl?.toString().length || 0, placeholder.length)}
         placeholder={placeholder}
         value={ttl?.toString() ?? ''}
         onChange={(e) => setTtl(e.target.value ? parseFloat(e.target.value) : undefined)}

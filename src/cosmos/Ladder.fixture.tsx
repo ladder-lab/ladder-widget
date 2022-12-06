@@ -43,7 +43,7 @@ function Fixture() {
   if (!window.frameElement) return <LadderWidget tokenLists={tokenLists} />
 
   return (
-    <Box display="flex" gap={3}>
+    <Box display="flex" gap={3} flexWrap="wrap">
       <LadderWidget tokenLists={tokenLists} {...eventHandlers} />
       <EventFeed events={events} onClear={() => setEvents([])} />
     </Box>
