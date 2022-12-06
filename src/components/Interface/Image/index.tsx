@@ -18,7 +18,7 @@ export default function Image({
 } & Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt' | 'style'>) {
   const [, refresh] = useState<number>(0)
   const srcs = useMemo(() => [src, altSrc], [src, altSrc])
-  const srcStr = srcs.find(item => !BAD_SRCS[item ?? ''])
+  const srcStr = srcs.find((item) => !BAD_SRCS[item ?? ''])
   return (
     <img
       {...rest}
@@ -28,7 +28,7 @@ export default function Image({
       className={className}
       onError={() => {
         if (srcStr) BAD_SRCS[srcStr] = true
-        refresh(i => i + 1)
+        refresh((i) => i + 1)
       }}
     />
   )
