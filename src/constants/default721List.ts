@@ -1,7 +1,5 @@
 import { ChainId } from '@ladder/sdk'
 
-import { Token721 } from './token/token721'
-
 const test721List = [
   { address: '0x54C0ac6D96D7B79c2941FaA33e61188611F4d813', name: 'Mutant Ape Yacht Club', synbol: 'BAYC' },
   { address: '0x9D88b325faA7b4C3E845c493fF282ed317414F6f', name: 'CryptoPunks', symbol: 'cp' },
@@ -38,33 +36,57 @@ export const isTest721 = (address: string) => {
 }
 
 const TEST_721_LIST = test721List.map(({ address, name, symbol }) => {
-  return new Token721(ChainId.GÖRLI, address, undefined, {
-    name,
-    symbol,
-    uri: getTest721uri(name),
-  })
-})
-TEST_721_LIST.unshift(
-  new Token721(ChainId.GÖRLI, '0x502AE96a7D3A13A51b7A13613569113A70841dEb', undefined, {
-    name: 'Test 721',
-    symbol: 'TEST_721',
-  })
-)
-
-export const DEFAULT_721_LIST: { [chainId in ChainId]?: Token721[] } = {
-  [ChainId.MAINNET]: [] as Token721[],
-  [ChainId.RINKEBY]: [
-    new Token721(4, '0x8978F929a3d85E92f5eA89613Cc4fD2B37294Db2', undefined, {
-      name: 'Standard ERC721',
-      symbol: 'ERC721',
-    }),
-  ] as Token721[],
-  [ChainId.GÖRLI]: TEST_721_LIST,
-  [ChainId.SEPOLIA]: test721ListSepolia.map(({ address, name, symbol }, index) => {
-    return new Token721(ChainId.SEPOLIA, address, undefined, {
+  return {
+    address,
+    tokenId: undefined,
+    metadata: {
       name,
       symbol,
-      uri: getTest721uri(test721List[index].name),
-    })
+      uri: getTest721uri(name),
+    },
+  }
+})
+TEST_721_LIST.unshift({
+  address: '0x502AE96a7D3A13A51b7A13613569113A70841dEb',
+  tokenId: undefined,
+  metadata: {
+    name: 'Test 721',
+    symbol: 'TEST_721',
+  } as any,
+})
+
+export const DEFAULT_721_LIST: {
+  [chainId in ChainId]?: {
+    address: string
+    tokenId?: string | number
+    metadata?: {
+      name?: string
+      symbol?: string
+      uri?: string
+    }
+  }[]
+} = {
+  [ChainId.MAINNET]: [],
+  [ChainId.RINKEBY]: [
+    {
+      address: '0x8978F929a3d85E92f5eA89613Cc4fD2B37294Db2',
+      tokenId: undefined,
+      metadata: {
+        name: 'Standard ERC721',
+        symbol: 'ERC721',
+      },
+    },
+  ],
+  [ChainId.GÖRLI]: TEST_721_LIST,
+  [ChainId.SEPOLIA]: test721ListSepolia.map(({ address, name, symbol }, index) => {
+    return {
+      address,
+      tokenId: undefined,
+      metadata: {
+        name,
+        symbol,
+        uri: getTest721uri(test721List[index].name),
+      },
+    }
   }),
 }

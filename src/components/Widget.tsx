@@ -1,11 +1,8 @@
 // eslint-disable-next-line simple-import-sort/imports
-import { ETHER, Token } from '@ladder/sdk'
 import { styled as muiStyled } from '@mui/material'
 import { TokenInfo } from '@uniswap/token-lists'
 import { Animation, Provider as DialogProvider } from 'components/Dialog'
 import ErrorBoundary, { OnError } from 'components/Error/ErrorBoundary'
-import { DEFAULT_721_LIST } from 'constants/default721List'
-import { DEFAULT_1155_LIST } from 'constants/default1155List'
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, SupportedLocale } from 'constants/locales'
 import { ModalProvider } from 'context/ModalContext'
 import { TokenListsProvider } from 'context/TokenListContext'
@@ -26,6 +23,8 @@ import { Theme, ThemeProvider } from 'theme'
 import { ThemeProvider as MuiThemeProvider } from 'theme/muiTheme'
 import { SwapProvider } from 'context/SwapContext'
 import { MintProvider } from 'context/MintContext'
+import { UserTokenLists } from 'models/userTokenLists'
+import { compileTokenLists } from 'utils/compileTokenLists'
 
 export const WidgetWrapper = muiStyled('div')<{ width?: number | string }>(({ theme, width }) => {
   return `
@@ -101,7 +100,11 @@ export interface WidgetProps extends BrandingSettings, TransactionEventHandlers,
   onError?: OnError
 }
 
-export default function Widget(props: PropsWithChildren<WidgetProps>) {
+export interface LadderProps extends BrandingSettings, TransactionEventHandlers, Web3Props, WidgetEventHandlers {
+  tokenLists?: UserTokenLists
+}
+
+export default function Widget(props: PropsWithChildren<WidgetProps> & LadderProps) {
   return <TestableWidget {...props} initialAtomValues={undefined} />
 }
 
@@ -109,7 +112,7 @@ export interface TestableWidgetProps extends WidgetProps {
   initialAtomValues?: Iterable<readonly [Atom<unknown>, unknown]>
 }
 
-export function TestableWidget(props: PropsWithChildren<TestableWidgetProps>) {
+export function TestableWidget(props: PropsWithChildren<TestableWidgetProps> & LadderProps) {
   if (props.initialAtomValues && process.env.NODE_ENV !== 'test') {
     throw new Error('initialAtomValues may only be used for testing')
   }
@@ -132,6 +135,10 @@ export function TestableWidget(props: PropsWithChildren<TestableWidgetProps>) {
     return props.locale ?? DEFAULT_LOCALE
   }, [props.locale])
   const [dialog, setDialog] = useState<HTMLDivElement | null>(props.dialog || null)
+
+  const compiledTokenList = useMemo(() => {
+    return compileTokenLists(props.tokenLists)
+  }, [props.tokenLists])
   return (
     <StrictMode>
       <MuiThemeProvider>
@@ -150,14 +157,9 @@ export function TestableWidget(props: PropsWithChildren<TestableWidgetProps>) {
                             <MulticallUpdater />
                             <TransactionsUpdater {...(props as TransactionEventHandlers)} />
                             <TokenListsProvider
-                              erc1155List={DEFAULT_1155_LIST}
-                              erc20List={{
-                                5: [
-                                  ETHER,
-                                  new Token(5, '0x38D915d21dE6e22bbcB295b54aB7e611A0E90F7F', 18, 'TEST', 'TEST COIN'),
-                                ],
-                              }}
-                              erc721List={DEFAULT_721_LIST}
+                              erc1155List={compiledTokenList.erc1155}
+                              erc20List={compiledTokenList.erc20}
+                              erc721List={compiledTokenList.erc721}
                             >
                               <MintProvider>
                                 <SwapProvider>{props.children}</SwapProvider>

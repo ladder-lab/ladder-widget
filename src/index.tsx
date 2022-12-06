@@ -2,7 +2,7 @@ import 'polyfills'
 
 import Ladder from 'components/Ladder'
 import Swap, { SwapProps } from 'components/Swap'
-import Widget, { WidgetProps } from 'components/Widget'
+import Widget, { LadderProps, WidgetProps as InterfaceProps } from 'components/Widget'
 
 export type { Provider as EthersProvider } from '@ethersproject/abstract-provider'
 export type { JsonRpcProvider } from '@ethersproject/providers'
@@ -59,17 +59,17 @@ export type { Theme } from 'theme'
 export { darkTheme, defaultTheme, lightTheme } from 'theme'
 export { invertTradeType, toTradeType } from 'utils/tradeType'
 
-export type SwapWidgetProps = SwapProps & WidgetProps
+export type WidgetProps = InterfaceProps
 
-export function LadderWidget() {
+export function LadderWidget(props: WidgetProps & LadderProps) {
   return (
-    <Widget>
+    <Widget {...props}>
       <Ladder />
     </Widget>
   )
 }
 
-export function SwapWidget(props: SwapWidgetProps) {
+export function SwapWidget(props: WidgetProps & SwapProps) {
   return (
     <Widget {...props}>
       <Swap {...props} />

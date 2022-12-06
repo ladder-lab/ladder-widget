@@ -4,10 +4,9 @@ import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
 import { useWeb3React } from '@web3-react/core'
 import ERC721_ABI from 'abis/erc721.json'
 import { NETWORK_CHAIN_ID } from 'constants/chain'
-import { DEFAULT_721_LIST } from 'constants/default721List'
-import { DEFAULT_1155_LIST } from 'constants/default1155List'
 import { Token721 } from 'constants/token/token721'
 import { Token1155 } from 'constants/token/token1155'
+import { useTokenLists } from 'context/TokenListContext'
 import { arrayify } from 'ethers/lib/utils'
 import { NEVER_RELOAD, useSingleCallResult } from 'hooks/multicall'
 import { TokenList, WrappedTokenInfo } from 'models/tokenList'
@@ -147,6 +146,7 @@ export function useToken1155(tokenAddress?: string, tokenId?: string | number): 
   const { chainId, provider: library } = useWeb3React()
   const address = isAddress(tokenAddress)
   const nftContract = use1155Contract(address ? address : undefined)
+  const { erc1155List } = useTokenLists()
 
   useEffect(() => {
     if (tokenAddress && library)
@@ -172,13 +172,13 @@ export function useToken1155(tokenAddress?: string, tokenId?: string | number): 
 
   return useMemo(() => {
     if (!chainId || !address || !tokenId) return undefined
-    const list = DEFAULT_1155_LIST[(chainId as keyof typeof DEFAULT_1155_LIST) ?? NETWORK_CHAIN_ID]
-    if (list) {
-      const token = list.find((token1155) => token1155.address === tokenAddress && token1155.tokenId == tokenId)
+
+    if (erc1155List) {
+      const token = erc1155List.find((token1155) => token1155.address === tokenAddress && token1155.tokenId == tokenId)
       if (token) return token
     }
     return is1155 ? new Token1155(chainId, address, tokenId, { name: meta.name, symbol: meta.symbol }) : undefined
-  }, [address, chainId, is1155, meta.name, meta.symbol, tokenAddress, tokenId])
+  }, [address, chainId, erc1155List, is1155, meta.name, meta.symbol, tokenAddress, tokenId])
 }
 
 const interface721 = ['0x80ac58cd']
@@ -192,6 +192,7 @@ export function useToken721(
   const { chainId, provider: library } = useWeb3React()
   const address = isAddress(tokenAddress)
   const nftContract = use721Contract(address ? address : undefined)
+  const { erc721List } = useTokenLists()
 
   const nameRes = useSingleCallResult(is721 ? nftContract : null, 'name')
   const symbolRes = useSingleCallResult(is721 ? nftContract : null, 'symbol')
@@ -211,15 +212,15 @@ export function useToken721(
 
   return useMemo(() => {
     if (!chainId || !address) return undefined
-    const list = DEFAULT_721_LIST[(chainId as keyof typeof DEFAULT_721_LIST) ?? NETWORK_CHAIN_ID]
-    if (list) {
-      const token = list.find((token721) => token721.address === tokenAddress)
+
+    if (erc721List) {
+      const token = erc721List.find((token721) => token721.address === tokenAddress)
       if (token) return token
     }
     return nameRes.result && is721
       ? new Token721(chainId, address, tokenId, { name: nameRes.result?.[0], symbol: symbolRes.result?.[0] })
       : undefined
-  }, [address, chainId, is721, nameRes.result, symbolRes.result, tokenAddress, tokenId])
+  }, [address, chainId, erc721List, is721, nameRes.result, symbolRes.result, tokenAddress, tokenId])
 }
 
 export function useToken721WithLoadingIndicator(

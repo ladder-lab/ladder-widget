@@ -1,7 +1,5 @@
 import { ChainId } from '@ladder/sdk'
 
-import { Token1155 } from './token/token1155'
-
 const test1155List = [
   '0x322dE6C57eAEDbc01ab9695Ad37E0d1541014CA0',
   '0x1F25b15E58fE4B3E3866eed0263203D6318059D8',
@@ -26,37 +24,67 @@ const test1155Sepolia = [
   '0x43f1138F109cAD8322754F97a46aF480A8F71A66',
   '0xF120b1be9Ab77c3cE13806016e647633F7Ca75D9',
 ]
-const TEST_1155_LIST = test1155List.map((address, idx) => {
-  return new Token1155(ChainId.GÖRLI, address, '1', {
-    name: `Test NFT-ERC1155-${idx + 1}`,
-    symbol: `TNT-${idx + 1}`,
-    uri: ` https://info.chainswap.com/file/tnt-${idx + 1}.jpg`,
-  })
-})
-TEST_1155_LIST.push(new Token1155(5, '0xbc0625fBFbCc7fe95197308b9660Ced5f7Ed9631', 1))
 
-export const DEFAULT_1155_LIST: { [chainId in ChainId]?: Token1155[] } = {
-  [ChainId.MAINNET]: [] as Token1155[],
+const TEST_1155_LIST = test1155List.map((address, idx) => {
+  return {
+    address,
+    tokenId: '1',
+    metadata: {
+      name: `Test NFT-ERC1155-${idx + 1}`,
+      symbol: `TNT-${idx + 1}`,
+      uri: ` https://info.chainswap.com/file/tnt-${idx + 1}.jpg`,
+    },
+  }
+})
+TEST_1155_LIST.push({ address: '0xbc0625fBFbCc7fe95197308b9660Ced5f7Ed9631', tokenId: 1 } as any)
+
+export const DEFAULT_1155_LIST: {
+  [chainId in ChainId]?: {
+    address: string
+    tokenId: string | number
+    metadata?: {
+      name?: string
+      symbol?: string
+      uri?: string
+    }
+  }[]
+} = {
+  [ChainId.MAINNET]: [] as any[],
   [ChainId.RINKEBY]: [
-    new Token1155(4, '0x75e4b5644eA842817155f960600b3cC3194D14C2', 1, {
-      name: 'Standard ERC1155',
-      symbol: 'ERC1155',
-    }),
-    new Token1155(4, '0x75e4b5644eA842817155f960600b3cC3194D14C2', 17, {
-      name: 'Standard ERC1155',
-      symbol: 'ERC1155',
-    }),
+    {
+      address: '0x75e4b5644eA842817155f960600b3cC3194D14C2',
+      tokenId: 1,
+      metadata: {
+        name: 'Standard ERC1155',
+        symbol: 'ERC1155',
+      },
+    },
+    {
+      address: '0x75e4b5644eA842817155f960600b3cC3194D14C2',
+      tokenId: 17,
+      metadata: {
+        name: 'Standard ERC1155',
+        symbol: 'ERC1155',
+      },
+    },
   ],
   [ChainId.BSC]: [
-    new Token1155(56, '0x26cA871A864f85A3673F7240D72daE54d1FcFd63', 4),
-    new Token1155(56, '0x26cA871A864f85A3673F7240D72daE54d1FcFd63', 2),
+    {
+      address: '0x26cA871A864f85A3673F7240D72daE54d1FcFd63',
+      tokenId: 4,
+    },
+    { address: '0x26cA871A864f85A3673F7240D72daE54d1FcFd63', tokenId: 2 },
   ],
   [ChainId.GÖRLI]: TEST_1155_LIST,
   [ChainId.SEPOLIA]: test1155Sepolia.map((address, idx) => {
-    return new Token1155(ChainId.SEPOLIA, address, '1', {
-      name: `LADDER-TEST-1155-${idx + 1}`,
-      symbol: `T-1155-${idx + 1}`,
-      uri: ` https://info.chainswap.com/file/tnt-${idx + 1}.jpg`,
-    })
+    return {
+      address,
+      tokenId: '1',
+      metadata: {
+        name: `LADDER-TEST-1155-${idx + 1}`,
+        symbol: `T-1155-${idx + 1}`,
+        uri: ` https://info.chainswap.com/file/tnt-${idx + 1}.jpg`,
+      },
+    }
   }),
 }
