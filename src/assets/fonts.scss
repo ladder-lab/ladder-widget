@@ -1,0 +1,53 @@
+// Use Inter mixin to set font-display: block.
+@use "@fontsource/inter/scss/mixins" as Inter;
+@include Inter.fontFace($fontName: 'Inter', $weight: 400, $display: block);
+@include Inter.fontFace($fontName: 'Inter', $weight: 500, $display: block);
+@include Inter.fontFace($fontName: 'Inter', $weight: 600, $display: block);
+@include Inter.fontFaceVariable($display: block);
+
+@import '~@fontsource/ibm-plex-mono/400.css';
+
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Lato Light Italic'), url('./fonts/Lato-LightItalic.ttf');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lato Regular'), url('./fonts/Lato-Regular.ttf');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Lato Regular'), url('./fonts/Lato-Medium.ttf');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lato Bold'), url('./fonts/Lato-Bold.ttf');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: local('Lato Black'), url('./fonts/Lato-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Monument Extended';
+  src: local('Monument Extended Regular'), local('MonumentExtended-Regular'),
+    url('./fonts/MonumentExtended-Regular.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
