@@ -25,7 +25,6 @@ export interface UserTokenLists {
   }
   erc20: {
     [chainId in ChainId]?: {
-      tokenId: string | number
       address: string
       decimals: number
       symbol: string

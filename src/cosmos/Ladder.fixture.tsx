@@ -29,7 +29,7 @@ function Fixture() {
     [useHandleEvent]
   )
 
-  const [tokenLists, setTokenLists] = useValue('tokenLists', { defaultValue: defaultTokenLists })
+  const [tokenLists] = useValue('tokenLists', { defaultValue: defaultTokenLists })
 
   if (!window.frameElement) return <LadderWidget tokenLists={tokenLists} />
 
