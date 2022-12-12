@@ -15,15 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn prepare
+      # - run: yarn prepare
 
-      - run: yarn test
-        if: success()
-
-      - run: yarn test:e2e
-        if: success()
-        env:
-          JSON_RPC_PROVIDER: ${{ secrets.JSON_RPC_PROVIDER }}
+      #   env:
+      #     JSON_RPC_PROVIDER: ${{ secrets.JSON_RPC_PROVIDER }}
 
       - run: yarn release --dry-run=${{ inputs.dry_run }}
         if: success()

@@ -135,6 +135,6 @@ const assets = [
 ]
 
 const config = [esm, cjs, types, locales]
-config.config = { ...esm, output: { ...esm.output, sourcemap: true } }
+config.config = { ...esm, output: { ...esm.output, sourcemap: true }, treeshake: true }
 config.assets = assets
 module.exports = config
