@@ -3,7 +3,7 @@ name: Crowdin Upload
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   upload-sources:
