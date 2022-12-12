@@ -1,19 +1,19 @@
-name: Crowdin Download
+# name: Crowdin Download
 
-on:
-  schedule:
-    - cron: '0 * * * *' # hourly
-  workflow_dispatch: # manually
+# on:
+#   schedule:
+#     - cron: '0 * * * *' # hourly
+#   workflow_dispatch: # manually
 
-jobs:
-  download-translations:
-    runs-on: ubuntu-latest
+# jobs:
+#   download-translations:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: ./.github/actions/setup
 
-      - run: yarn i18n:extract
+#       - run: yarn i18n:extract
 
       # - uses: crowdin/github-action@1.4.8
       #   with:
