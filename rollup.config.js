@@ -22,8 +22,8 @@ const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx']
  * This exports scheme works for nextjs and for CRA5.
  *
  * It will also work for CRA4 if you use direct imports:
- *   instead of `import { SwapWidget } from '@ladder/widgets'`,
- *              `import { SwapWidget } from '@ladder/widgets/dist/index.js'`.
+ *   instead of `import { LadderWidget } from '@ladder/widgets'`,
+ *              `import { LadderWidget } from '@ladder/widgets/dist/index.js'`.
  * I do not know why CRA4 does not seem to use exports for resolution.
  *
  * Note that chunks are enabled. This is so the tokenlist spec can be loaded async,
@@ -37,7 +37,7 @@ const transpile = {
   input: 'src/index.tsx',
   external: (source) => {
     // @ethersproject/* modules are provided by ethers
-    return source.startsWith('@ethersproject/')
+    return source.startsWith('@ethersproject/') || source.startsWith('@mui/')
   },
   plugins: [
     // Dependency resolution
