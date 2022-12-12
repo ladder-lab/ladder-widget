@@ -111,6 +111,7 @@
     "react-virtualized-auto-sizer": "^1.0.2",
     "rebass": "^4.0.7",
     "redux": ">=4.1.2",
+    "rollup-plugin-generate-package-json": "^3.2.0",
     "setimmediate": "^1.0.5",
     "styled-components": ">=5",
     "tiny-invariant": "^1.2.0",

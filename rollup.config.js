@@ -15,6 +15,7 @@ const svgr = require('@svgr/rollup')
 const { default: multi } = require('rollup-plugin-multi-input')
 const externals = require('rollup-plugin-node-externals')
 const sass = require('rollup-plugin-scss')
+const generatePackageJson = require('rollup-plugin-generate-package-json')
 
 const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -64,6 +65,9 @@ const transpile = {
       extensions: EXTENSIONS,
     }),
     inject({ React: 'react' }), // imports React (on the top-level, un-renamed), for the classic runtime
+    generatePackageJson({
+      outputFolder: 'dist',
+    }),
   ],
   onwarn: (warning, warn) => {
     // This pipeline is for transpilation - checking is done through tsc.
