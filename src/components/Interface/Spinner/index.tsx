@@ -5,7 +5,7 @@ export default function Spinner({
   thickness = 3,
   marginLeft,
   marginRight,
-  color
+  color,
 }: {
   size?: string | number
   thickness?: number
@@ -20,18 +20,18 @@ export default function Spinner({
         marginLeft: marginLeft ?? 0,
         marginRight: marginRight ?? 0,
         height: size,
-        width: size
+        width: size,
       }}
     >
       <CircularProgress
         variant="indeterminate"
         disableShrink
         sx={{
-          color: theme => color ?? theme.palette.primary.main,
+          color: (theme) => color ?? theme.palette.primary.main,
           animationDuration: '850ms',
           position: 'absolute',
           left: 0,
-          top: 0
+          top: 0,
         }}
         thickness={thickness}
         size={size}

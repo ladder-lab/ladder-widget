@@ -5,9 +5,9 @@
 /src/abis/types
 
 # generated locales
-/src/locales/**/*.js
-/src/locales/**/en-US.po
-/src/locales/**/pseudo.po
+# /src/locales/**/*.js
+# /src/locales/**/en-US.po
+# /src/locales/**/pseudo.po
 
 # dependency management
 package-lock.json

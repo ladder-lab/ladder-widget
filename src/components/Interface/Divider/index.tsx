@@ -18,7 +18,7 @@ export default function Divider({ extension, orientation, ...props }: Props & Di
         height: orientation === 'vertical' ? '100%' : '1px',
         backgroundColor: theme.palette.text.secondary,
         margin: extension ? `0 -${extension}px` : '0',
-        opacity: 0.1
+        opacity: 0.1,
       }}
     />
   )
