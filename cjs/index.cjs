@@ -9,8 +9,6 @@ var _defineProperty = require('@babel/runtime/helpers/defineProperty');
 var iconsMaterial = require('@mui/icons-material');
 var material = require('@mui/material');
 var _taggedTemplateLiteral = require('@babel/runtime/helpers/taggedTemplateLiteral');
-require('@mui/icons-material/ArrowBackIosNew');
-var MuiCloseIcon = require('@mui/icons-material/Close');
 var core = require('@web3-react/core');
 var _asyncToGenerator = require('@babel/runtime/helpers/asyncToGenerator');
 var _regeneratorRuntime = require('@babel/runtime/regenerator');
@@ -35,7 +33,6 @@ var _getPrototypeOf = require('@babel/runtime/helpers/getPrototypeOf');
 require('setimmediate');
 var walletconnect = require('@web3-react/walletconnect');
 var QRCode = require('qrcode');
-var ExpandMoreIcon = require('@mui/icons-material/ExpandMore');
 var _toConsumableArray = require('@babel/runtime/helpers/toConsumableArray');
 var sdk = require('@ladder/sdk');
 var axios = require('axios');
@@ -49,7 +46,6 @@ var address = require('@ethersproject/address');
 var constants = require('@ethersproject/constants');
 var contracts = require('@ethersproject/contracts');
 var hash = require('@ethersproject/hash');
-var HelpOutlineOutlinedIcon = require('@mui/icons-material/HelpOutlineOutlined');
 var _objectWithoutProperties = require('@babel/runtime/helpers/objectWithoutProperties');
 require('dayjs');
 var portal = require('@reach/portal');
@@ -65,11 +61,9 @@ var providers = require('@ethersproject/providers');
 var bignumber = require('@ethersproject/bignumber');
 var _assertThisInitialized = require('@babel/runtime/helpers/assertThisInitialized');
 var _wrapNativeSuper = require('@babel/runtime/helpers/wrapNativeSuper');
-var KeyboardArrowDownIcon = require('@mui/icons-material/KeyboardArrowDown');
 var Accordion = require('@mui/material/Accordion');
 var AccordionDetails = require('@mui/material/AccordionDetails');
 var AccordionSummary = require('@mui/material/AccordionSummary');
-var CheckIcon = require('@mui/icons-material/Check');
 var eip1193 = require('@web3-react/eip1193');
 var metamask = require('@web3-react/metamask');
 var network = require('@web3-react/network');
@@ -103,7 +97,6 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var _slicedToArray__default = /*#__PURE__*/_interopDefaultLegacy(_slicedToArray);
 var _defineProperty__default = /*#__PURE__*/_interopDefaultLegacy(_defineProperty);
 var _taggedTemplateLiteral__default = /*#__PURE__*/_interopDefaultLegacy(_taggedTemplateLiteral);
-var MuiCloseIcon__default = /*#__PURE__*/_interopDefaultLegacy(MuiCloseIcon);
 var _asyncToGenerator__default = /*#__PURE__*/_interopDefaultLegacy(_asyncToGenerator);
 var _regeneratorRuntime__default = /*#__PURE__*/_interopDefaultLegacy(_regeneratorRuntime);
 var _styled__default = /*#__PURE__*/_interopDefaultLegacy(_styled);
@@ -116,22 +109,18 @@ var _inherits__default = /*#__PURE__*/_interopDefaultLegacy(_inherits);
 var _possibleConstructorReturn__default = /*#__PURE__*/_interopDefaultLegacy(_possibleConstructorReturn);
 var _getPrototypeOf__default = /*#__PURE__*/_interopDefaultLegacy(_getPrototypeOf);
 var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
-var ExpandMoreIcon__default = /*#__PURE__*/_interopDefaultLegacy(ExpandMoreIcon);
 var _toConsumableArray__default = /*#__PURE__*/_interopDefaultLegacy(_toConsumableArray);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 var qs__default = /*#__PURE__*/_interopDefaultLegacy(qs);
 var CID__default = /*#__PURE__*/_interopDefaultLegacy(CID);
-var HelpOutlineOutlinedIcon__default = /*#__PURE__*/_interopDefaultLegacy(HelpOutlineOutlinedIcon);
 var _objectWithoutProperties__default = /*#__PURE__*/_interopDefaultLegacy(_objectWithoutProperties);
 var DEFAULT_TOKEN_LIST__default = /*#__PURE__*/_interopDefaultLegacy(DEFAULT_TOKEN_LIST);
 var flatMap__default = /*#__PURE__*/_interopDefaultLegacy(flatMap);
 var _assertThisInitialized__default = /*#__PURE__*/_interopDefaultLegacy(_assertThisInitialized);
 var _wrapNativeSuper__default = /*#__PURE__*/_interopDefaultLegacy(_wrapNativeSuper);
-var KeyboardArrowDownIcon__default = /*#__PURE__*/_interopDefaultLegacy(KeyboardArrowDownIcon);
 var Accordion__default = /*#__PURE__*/_interopDefaultLegacy(Accordion);
 var AccordionDetails__default = /*#__PURE__*/_interopDefaultLegacy(AccordionDetails);
 var AccordionSummary__default = /*#__PURE__*/_interopDefaultLegacy(AccordionSummary);
-var CheckIcon__default = /*#__PURE__*/_interopDefaultLegacy(CheckIcon);
 
 if (typeof window !== 'undefined') {
   // WalletConnect relies on Buffer, so it must be polyfilled.
@@ -854,7 +843,7 @@ function CloseIcon(_ref2) {
       sx: _objectSpread$m({
         position: 'absolute'
       }, sx)
-    }, /*#__PURE__*/React__default["default"].createElement(MuiCloseIcon__default["default"], {
+    }, /*#__PURE__*/React__default["default"].createElement(iconsMaterial.Close, {
       sx: {
         fontSize: 20,
         color: theme.palette.text.secondary,
@@ -887,7 +876,7 @@ function CloseIcon(_ref2) {
         fill: theme.palette.text.primary
       }
     }, sx)
-  }, /*#__PURE__*/React__default["default"].createElement(MuiCloseIcon__default["default"], {
+  }, /*#__PURE__*/React__default["default"].createElement(iconsMaterial.Close, {
     sx: {
       fontSize: 20,
       color: theme.palette.text.secondary
@@ -2440,7 +2429,7 @@ function SelectButton(props) {
         opacity: theme.palette.action.disabledOpacity
       }
     }
-  }, /*#__PURE__*/React__default["default"].createElement(material.Box, null, children), /*#__PURE__*/React__default["default"].createElement(ExpandMoreIcon__default["default"], null));
+  }, /*#__PURE__*/React__default["default"].createElement(material.Box, null, children), /*#__PURE__*/React__default["default"].createElement(iconsMaterial.ExpandMore, null));
 }
 
 var WETH = "https://bscscan.com/token/images/ethereum_32.png";
@@ -9196,7 +9185,7 @@ function Logo(_ref) {
     });
   }
 
-  return /*#__PURE__*/React__default["default"].createElement(HelpOutlineOutlinedIcon__default["default"], {
+  return /*#__PURE__*/React__default["default"].createElement(iconsMaterial.HelpOutlineOutlined, {
     sx: _objectSpread$f(_objectSpread$f({}, style), {}, {
       background: '#ffffff'
     })
@@ -9588,7 +9577,7 @@ function QuestionHelper(_ref2) {
     onMouseEnter: open,
     onMouseLeave: close,
     style: _objectSpread$d({}, style)
-  }, title ? title : /*#__PURE__*/React__default["default"].createElement(HelpOutlineOutlinedIcon__default["default"], {
+  }, title ? title : /*#__PURE__*/React__default["default"].createElement(iconsMaterial.HelpOutlineOutlined, {
     sx: {
       height: size,
       width: size
@@ -11001,7 +10990,7 @@ function Erc721IdSelectionModal(_ref) {
         return !state;
       });
     }
-  }, detailsOpen ? /*#__PURE__*/React__default["default"].createElement(MuiCloseIcon__default["default"], null) : 'Details'), detailsOpen && /*#__PURE__*/React__default["default"].createElement(material.Box, {
+  }, detailsOpen ? /*#__PURE__*/React__default["default"].createElement(iconsMaterial.Close, null) : 'Details'), detailsOpen && /*#__PURE__*/React__default["default"].createElement(material.Box, {
     sx: {
       position: 'absolute',
       bottom: '100%',
@@ -17843,7 +17832,7 @@ function _Accordion(props) {
       fontSize: 14,
       userSelect: disabled ? 'none' : 'auto'
     },
-    expandIcon: /*#__PURE__*/React__default["default"].createElement(KeyboardArrowDownIcon__default["default"], null)
+    expandIcon: /*#__PURE__*/React__default["default"].createElement(iconsMaterial.KeyboardArrowDown, null)
   }, summary), /*#__PURE__*/React__default["default"].createElement(AccordionDetails__default["default"], {
     sx: {
       mt: 10
@@ -18065,7 +18054,7 @@ function Copy(props) {
       e.stopPropagation();
       setCopied(toCopy);
     }
-  }, isCopied ? /*#__PURE__*/React__default["default"].createElement(CheckIcon__default["default"], {
+  }, isCopied ? /*#__PURE__*/React__default["default"].createElement(iconsMaterial.Check, {
     sx: {
       opacity: 0.6,
       fontSize: 16

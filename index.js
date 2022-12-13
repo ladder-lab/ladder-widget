@@ -2,11 +2,9 @@ import React, { useCallback, memo, useState, createContext, useContext, useMemo,
 import { Buffer } from 'buffer';
 import _slicedToArray from '@babel/runtime/helpers/slicedToArray';
 import _defineProperty from '@babel/runtime/helpers/defineProperty';
-import { ContentCopy, AddCircle } from '@mui/icons-material';
+import { Close, ExpandMore, HelpOutlineOutlined, KeyboardArrowDown, Check, ContentCopy, AddCircle } from '@mui/icons-material';
 import { styled, useTheme, ButtonBase, IconButton, Link as Link$1, Box, Typography, Button, lighten, InputLabel as InputLabel$1, InputBase, Switch, Grid, CircularProgress, darken as darken$1, Paper, Divider as Divider$1, MenuItem } from '@mui/material';
 import _taggedTemplateLiteral from '@babel/runtime/helpers/taggedTemplateLiteral';
-import '@mui/icons-material/ArrowBackIosNew';
-import MuiCloseIcon from '@mui/icons-material/Close';
 import { useWeb3React, Web3ReactProvider, initializeConnector } from '@web3-react/core';
 import _asyncToGenerator from '@babel/runtime/helpers/asyncToGenerator';
 import _regeneratorRuntime from '@babel/runtime/regenerator';
@@ -31,7 +29,6 @@ import _getPrototypeOf from '@babel/runtime/helpers/getPrototypeOf';
 import 'setimmediate';
 import { URI_AVAILABLE, WalletConnect } from '@web3-react/walletconnect';
 import QRCode from 'qrcode';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import _toConsumableArray from '@babel/runtime/helpers/toConsumableArray';
 import { Token, ChainId as ChainId$1, ETHER, TokenAmount, JSBI, CurrencyAmount, WETH as WETH$1, Pair, Percent, currencyEquals, Trade, TradeType, Price, Router } from '@ladder/sdk';
 import axios from 'axios';
@@ -46,7 +43,6 @@ import { getAddress } from '@ethersproject/address';
 import { AddressZero } from '@ethersproject/constants';
 import { Contract } from '@ethersproject/contracts';
 import { namehash } from '@ethersproject/hash';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
 import 'dayjs';
 import { Portal } from '@reach/portal';
@@ -62,11 +58,9 @@ import { JsonRpcProvider, StaticJsonRpcProvider } from '@ethersproject/providers
 import { BigNumber } from '@ethersproject/bignumber';
 import _assertThisInitialized from '@babel/runtime/helpers/assertThisInitialized';
 import _wrapNativeSuper from '@babel/runtime/helpers/wrapNativeSuper';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import CheckIcon from '@mui/icons-material/Check';
 import { EIP1193 } from '@web3-react/eip1193';
 import { MetaMask } from '@web3-react/metamask';
 import { Network } from '@web3-react/network';
@@ -797,7 +791,7 @@ function CloseIcon(_ref2) {
       sx: _objectSpread$m({
         position: 'absolute'
       }, sx)
-    }, /*#__PURE__*/React.createElement(MuiCloseIcon, {
+    }, /*#__PURE__*/React.createElement(Close, {
       sx: {
         fontSize: 20,
         color: theme.palette.text.secondary,
@@ -830,7 +824,7 @@ function CloseIcon(_ref2) {
         fill: theme.palette.text.primary
       }
     }, sx)
-  }, /*#__PURE__*/React.createElement(MuiCloseIcon, {
+  }, /*#__PURE__*/React.createElement(Close, {
     sx: {
       fontSize: 20,
       color: theme.palette.text.secondary
@@ -2383,7 +2377,7 @@ function SelectButton(props) {
         opacity: theme.palette.action.disabledOpacity
       }
     }
-  }, /*#__PURE__*/React.createElement(Box, null, children), /*#__PURE__*/React.createElement(ExpandMoreIcon, null));
+  }, /*#__PURE__*/React.createElement(Box, null, children), /*#__PURE__*/React.createElement(ExpandMore, null));
 }
 
 var WETH = "https://bscscan.com/token/images/ethereum_32.png";
@@ -9139,7 +9133,7 @@ function Logo(_ref) {
     });
   }
 
-  return /*#__PURE__*/React.createElement(HelpOutlineOutlinedIcon, {
+  return /*#__PURE__*/React.createElement(HelpOutlineOutlined, {
     sx: _objectSpread$f(_objectSpread$f({}, style), {}, {
       background: '#ffffff'
     })
@@ -9531,7 +9525,7 @@ function QuestionHelper(_ref2) {
     onMouseEnter: open,
     onMouseLeave: close,
     style: _objectSpread$d({}, style)
-  }, title ? title : /*#__PURE__*/React.createElement(HelpOutlineOutlinedIcon, {
+  }, title ? title : /*#__PURE__*/React.createElement(HelpOutlineOutlined, {
     sx: {
       height: size,
       width: size
@@ -10944,7 +10938,7 @@ function Erc721IdSelectionModal(_ref) {
         return !state;
       });
     }
-  }, detailsOpen ? /*#__PURE__*/React.createElement(MuiCloseIcon, null) : 'Details'), detailsOpen && /*#__PURE__*/React.createElement(Box, {
+  }, detailsOpen ? /*#__PURE__*/React.createElement(Close, null) : 'Details'), detailsOpen && /*#__PURE__*/React.createElement(Box, {
     sx: {
       position: 'absolute',
       bottom: '100%',
@@ -17786,7 +17780,7 @@ function _Accordion(props) {
       fontSize: 14,
       userSelect: disabled ? 'none' : 'auto'
     },
-    expandIcon: /*#__PURE__*/React.createElement(KeyboardArrowDownIcon, null)
+    expandIcon: /*#__PURE__*/React.createElement(KeyboardArrowDown, null)
   }, summary), /*#__PURE__*/React.createElement(AccordionDetails, {
     sx: {
       mt: 10
@@ -18008,7 +18002,7 @@ function Copy(props) {
       e.stopPropagation();
       setCopied(toCopy);
     }
-  }, isCopied ? /*#__PURE__*/React.createElement(CheckIcon, {
+  }, isCopied ? /*#__PURE__*/React.createElement(Check, {
     sx: {
       opacity: 0.6,
       fontSize: 16
