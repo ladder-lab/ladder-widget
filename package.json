@@ -1,7 +1,9 @@
 {
   "name": "@ladder/widget",
   "version": "0.0.1",
-  "type": "module",
+  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/index.js",
   "dependencies": {
     "@babel/runtime": ">=7.17.0",
     "@ladder/sdk": "ladder-lab/sdk.git#master",
