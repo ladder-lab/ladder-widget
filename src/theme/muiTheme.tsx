@@ -1,5 +1,5 @@
 /* eslint-disable unused-imports/no-unused-imports */
-import { createTheme, darken, styled, ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
+import { createTheme, darken, styled, ThemeProvider as MuiThemeProvider } from '@mui/material/styles/index.js'
 
 export type PaletteMode = 'light' | 'dark'
 
