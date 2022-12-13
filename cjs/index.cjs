@@ -22,7 +22,7 @@ var rebass = require('rebass');
 require('wicg-inert');
 var reactFeather = require('react-feather');
 var reactDom = require('react-dom');
-var styles = require('@mui/material/styles');
+var index_js = require('@mui/material/styles/index.js');
 var invariant = require('tiny-invariant');
 var _get = require('@babel/runtime/helpers/get');
 var _createClass = require('@babel/runtime/helpers/createClass');
@@ -1498,7 +1498,7 @@ var themeColors = {
   primary: {
     light: '#ADDFB5',
     main: '#1F9898',
-    dark: styles.darken('#1F9898', 0.3),
+    dark: index_js.darken('#1F9898', 0.3),
     contrastText: '#1A1C1E'
   },
   secondary: {
@@ -1539,7 +1539,7 @@ var themeDarkColors = {
   primary: {
     light: '#ADDFB5',
     main: '#D8FF20',
-    dark: styles.darken('#D8FF20', 0.2),
+    dark: index_js.darken('#D8FF20', 0.2),
     contrastText: '#1A1C1E'
   },
   secondary: {
@@ -1743,7 +1743,7 @@ var FONTS = {
   title: 'Monument Extended, Helvetica, sans-serif',
   content: 'Lato, Helvetica, sans-serif'
 };
-styles.styled('div', {
+index_js.styled('div', {
   shouldForwardProp: function shouldForwardProp() {
     return true;
   }
@@ -1754,7 +1754,7 @@ styles.styled('div', {
     display: 'none'
   });
 });
-styles.styled('div', {
+index_js.styled('div', {
   shouldForwardProp: function shouldForwardProp() {
     return true;
   }
@@ -1767,7 +1767,7 @@ styles.styled('div', {
     display: 'block'
   });
 });
-var theme = styles.createTheme(_objectSpread$k(_objectSpread$k({
+var theme = index_js.createTheme(_objectSpread$k(_objectSpread$k({
   palette: _objectSpread$k({
     mode: 'light'
   }, themeColors)
@@ -1779,7 +1779,7 @@ var theme = styles.createTheme(_objectSpread$k(_objectSpread$k({
     }
   }
 }));
-styles.createTheme(_objectSpread$k(_objectSpread$k({
+index_js.createTheme(_objectSpread$k(_objectSpread$k({
   palette: _objectSpread$k({
     mode: 'dark'
   }, themeDarkColors)
@@ -1793,7 +1793,7 @@ styles.createTheme(_objectSpread$k(_objectSpread$k({
 }));
 function ThemeProvider(_ref5) {
   var children = _ref5.children;
-  return /*#__PURE__*/React__default["default"].createElement(styles.ThemeProvider, {
+  return /*#__PURE__*/React__default["default"].createElement(index_js.ThemeProvider, {
     theme: theme
   }, children);
 }

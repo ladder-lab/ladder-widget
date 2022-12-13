@@ -18,7 +18,7 @@ import { Text } from 'rebass';
 import 'wicg-inert';
 import { ArrowRight, ArrowUp, CheckCircle, BarChart2, ChevronLeft as ChevronLeft$1, ChevronDown, Clock as Clock$1, HelpCircle, Info as Info$1, ExternalLink as ExternalLink$1, Settings as Settings$2, Slash, Trash2, X, XOctagon as XOctagon$1, AlertTriangle as AlertTriangle$1 } from 'react-feather';
 import { createPortal } from 'react-dom';
-import { darken, styled as styled$1, createTheme, ThemeProvider as ThemeProvider$3 } from '@mui/material/styles';
+import { darken, styled as styled$1, createTheme, ThemeProvider as ThemeProvider$3 } from '@mui/material/styles/index.js';
 import invariant from 'tiny-invariant';
 import _get from '@babel/runtime/helpers/get';
 import _createClass from '@babel/runtime/helpers/createClass';
