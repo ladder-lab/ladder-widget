@@ -38,7 +38,7 @@ const transpile = {
   input: 'src/index.tsx',
   external: (source) => {
     // @ethersproject/* modules are provided by ethers
-    return source.startsWith('@ethersproject/')
+    return source.startsWith('@ethersproject/') || source.startsWith('@mui/')
   },
   plugins: [
     // Dependency resolution
