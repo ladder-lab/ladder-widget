@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import Close from '@mui/icons-material/Close'
+import { Close } from '@mui/icons-material'
 import { Box, Button, Grid, IconButton, Typography, useTheme } from '@mui/material'
 import { ReactComponent as SearchIcon } from 'assets/svg/search.svg'
 import { ReactComponent as Xcircle } from 'assets/svg/xcircle.svg'

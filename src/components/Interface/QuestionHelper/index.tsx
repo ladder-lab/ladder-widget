@@ -1,4 +1,4 @@
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined'
+import { HelpOutlineOutlined as HelpOutlineOutlinedIcon } from '@mui/icons-material'
 import { styled, Typography } from '@mui/material'
 import dayjs from 'dayjs'
 import { CSSProperties, useCallback, useState } from 'react'

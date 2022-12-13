@@ -1,5 +1,4 @@
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
-import MuiCloseIcon from '@mui/icons-material/Close'
+import { ArrowBackIosNew as ArrowBackIosNewIcon, Close as MuiCloseIcon } from '@mui/icons-material'
 import { ButtonBase, IconButton, Link, styled, Theme, useTheme } from '@mui/material'
 import { SxProps } from '@mui/system'
 import { ReactComponent as ExternalArrow } from 'assets/svg/external_arrow.svg'

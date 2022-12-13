@@ -1,4 +1,4 @@
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined'
+import { HelpOutlineOutlined as HelpOutlineOutlinedIcon } from '@mui/icons-material'
 import { useState } from 'react'
 
 const BAD_SRCS: { [tokenAddress: string]: true } = {}

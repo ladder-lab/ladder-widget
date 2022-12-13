@@ -1,5 +1,4 @@
-import { ContentCopy } from '@mui/icons-material'
-import CheckIcon from '@mui/icons-material/Check'
+import { Check as CheckIcon,ContentCopy } from '@mui/icons-material'
 import { Box } from '@mui/material'
 import useCopyClipboard from 'hooks/useCopyClipboard'
 import React from 'react'

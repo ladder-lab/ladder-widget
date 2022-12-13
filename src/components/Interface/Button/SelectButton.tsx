@@ -1,4 +1,4 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material'
 import { Box, ButtonBase, useTheme } from '@mui/material'
 import React from 'react'
 
